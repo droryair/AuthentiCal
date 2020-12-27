@@ -25,10 +25,8 @@ function parseJwt(token) {
 
 app.post('/calc', (req, res) => {
     const data = req.body
-    const token = data.token
+    const token = req.headers.token
     const action = data.action
-    // const jwtSignature = token.split('.')[2]
-
     
     let result
     switch (action) {

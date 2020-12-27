@@ -12,8 +12,7 @@ app.use(express.json())
 
 
 app.get(`/calc`, async (req, res) => {
-  // const token = await logIn()
-  const token = req.body.token
+  const token = req.headers.token
 
   if (token) {
     console.log(`(line 20) token: ${token}`)
@@ -24,16 +23,21 @@ app.get(`/calc`, async (req, res) => {
     }else{
       console.log(req.body)
     }
+    
+    const headers = {
+      token: token
+    }
     const data = {
       number1:req.body.number1, 
       number2: req.body.number2,
-      action: req.body.action,
-      token: token
+      action: req.body.action
+            // token: token
     }
     axios({
       method: 'post',
       url: `http://localhost:4001/calc`,  //calc-server
-      data: data
+      data: data,
+      headers: headers
     })
       .then(function (response) {
         console.log(response.data);
