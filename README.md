@@ -18,24 +18,32 @@ ________________________________________________________________
       - the app will check if the user exists, and if so- will print your token.  
       - copy the token you received.  
  -2.  
-      - GET request to:   http://localhost:3000/calc , with body (JSON).  
-      - the body needs to include: "token" , "number1" , "number2" , "action".  
-      - token: paste from the previous sesponse.  
+      - GET request to:   http://localhost:3000/calc , with headers and body (JSON).  
+      - the headers needs to include: "token".  
+        - token: paste from the previous sesponse.  
+      - the body needs to include:"number1" , "number2" , "action".  
       - number1, number2: any numbers you want to calculate.    
       - action (optional): "add" / "sub" / "mult" / "div". default:"add"  
 - the app wil check your token, and the existance of at least "number1" and "number2" , and will print the result.  
 ________________________________________________________________
 
-### Examples using Postman:
+## Examples using Postman:
 
-First request:  
+### First request:  
 <kbd>  
 <img src="https://github.com/droryair/Auth-Project/blob/master/assets/firstRequest.PNG" alt="First Request Example" height="400">   
 </kbd>  
   
-Second request:  
+    
+### Second request:    
+#### Headers:  
 <kbd>  
-<img src="https://github.com/droryair/Auth-Project/blob/master/assets/secondRequest.PNG" alt="Second Request Example" height="400">  
+<img src="https://github.com/droryair/Auth-Project/blob/master/assets/SecondeRequest-Headers.PNG" alt="Second Request-Headers Example" height="300"> 
+ </kbd>    
+   
+ #### Body:  
+<kbd>  
+<img src="https://github.com/droryair/Auth-Project/blob/master/assets/secondRequest-Body.PNG" alt="Second Request-Body Example" height="400">  
 </kbd>
 
 ________________________________________________________________
