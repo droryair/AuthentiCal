@@ -55,7 +55,7 @@ app.post('/calc', (req, res) => {
             res.status(403).send("token is not verified")
         } else {
             console.log(payload)
-            res.status(200).send(result.toString());
+            res.status(200).send(`You have been verified. the result of your calculation is: \n ${result.toString()}`);
         }
     });
     const decodedJWT = parseJwt(token)

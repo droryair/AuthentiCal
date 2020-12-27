@@ -25,6 +25,7 @@ app.get('/login',(req,res)=>{
         res.status(200).send(token.toString())
     }
     else{   
+        console.log("Username or Password are invalid or missing")
         res.status(401).send("Username or Password are invalid or missing")
     }
 })

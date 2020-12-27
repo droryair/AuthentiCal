@@ -11,43 +11,15 @@ app.use(express.json())
 
 
 
-
-
-
-const logIn = async () => {
-  let token
-  const loginData = {
-    userName: "username1",
-    password: "password1234",
-  }
-  try {
-    await axios({
-      method: 'get',
-      url: `http://localhost:4000/login`, //auth-server
-      data: loginData
-    })
-      .then(function (response) {
-        token = response.data
-      })
-      .catch(function (error) {
-        console.log(`(line 41) error: ${error}`)
-        res.sendStatus(400)
-      })
-  } catch (error) {
-    console.log(`(line 45) error: ${error}`)
-  }
-
-  return token
-}
-
-
-
-
 app.get(`/calc`, async (req, res) => {
-  const token = await logIn()
+  // const token = await logIn()
+  const token = req.body.token
+
   if (token) {
-    console.log(`(line 56) token: ${token}`)
-    if(req.body.number1 === undefined || req.body.number2 === undefined  ){ // 'action' has default of 'add'. see calc-server, lines 47-62. 
+    console.log(`(line 20) token: ${token}`)
+    if(req.body.number1 === undefined || req.body.number2 === undefined  ){ 
+      // 'action' has default of 'add'. see calc-server, lines 34-49. 
+      // token error: line 47.
       res.status(401).send("one of the data items is not found, or is misspeld")
     }else{
       console.log(req.body)
@@ -75,6 +47,56 @@ app.get(`/calc`, async (req, res) => {
     res.status(401).send("Token not found")
   }
 })
+
+
+
+
+app.get(`/login`, async (req,res)=>{
+// const logIn = async () => {
+  let token
+  // const loginData = {
+  //   userName: "username1",
+  //   password: "password1234",
+  // }
+  const loginData = {
+    userName: req.body.userName,
+    password: req.body.password,
+  }
+  try {
+    await axios({
+      method: 'get',
+      url: `http://localhost:4000/login`, //auth-server
+      data: loginData
+    })
+      .then(function (response) {
+        token = response.data
+        res.status(200).send(`Welcome, ${req.body.userName}. Your token is: ${token}`)
+      })
+      .catch(function (error) {
+        console.log(`(line 41) error: ${error}`)
+        res.sendStatus(400)
+      })
+  } catch (error) {
+    console.log(`(line 45) error: ${error}`)
+  }
+
+  return token
+// }
+})
+
+
+
+// app.post(`/login`, async (req,res)=>{
+//   const loginData = {
+//     userName: req.body.username,
+//     password: req.body.password
+//   }
+// })
+
+
+
+
+
 
 
 
