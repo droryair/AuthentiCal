@@ -3,5 +3,4 @@ keys/
 *.key
 keys/**
 
-.env
 node_modules/

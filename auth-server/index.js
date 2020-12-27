@@ -1,12 +1,14 @@
 require('dotenv').config()
 const express = require('express')
-const axios = require('axios')
 var bodyParser = require('body-parser')
-const app = express()
 const fs = require('fs')
 const jwt = require('jsonwebtoken')
+
+const app = express()
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
 
 const users = [
     {username:"username1",
@@ -15,14 +17,11 @@ const users = [
 
 app.get('/login',(req,res)=>{
     const data = req.body
-    const user = users.find(u=>u.username === req.body.userName && u.password === req.body.password)
+    const user = users.find(u=>u.username === data.userName && u.password === data.password)
     if (user){
-        console.log(`(line 19) login data: `)
-        console.log("Date",Date.now())
-        var privateKey = fs.readFileSync('../keys/private.key');
+        const privateKey = fs.readFileSync('../keys/private.key');
         // >>>>>>> https://www.npmjs.com/package/jsonwebtoken <<<<<<< here!!!!!
-        // const token = jwt.sign({username:req.body.userName,TTL:Date.now()+(2*60*1000)},process.env.PRIV_KEY, {algorithm: "RS256"})
-        var token = jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256'});
+        const token = jwt.sign({ some: 'info' }, privateKey, { algorithm: 'RS256'});
         res.status(200).send(token.toString())
     }
     else{   
