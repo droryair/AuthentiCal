@@ -7,13 +7,14 @@ ________________________________________________________________
 
 
 - :arrow_forward: how to run:  
-- start all of the three servers in three different terminals: user-server, auth-server, calc-server.  
+
+- start the three servers in different terminals: user-server, auth-server, calc-server.  
 - send two requests to the user-server:  
   -1.   
       - GET request to: http://localhost:3000/login , with body (JSON).  
-      - the body need to inclued: "userName" ,  "password".  
-      - username: "username1".  
-      - "password: "password1234".  
+      - the body needs to include: "userName" ,  "password".  
+      - userName: "username1".  
+      - password: "password1234".  
       - the app will check if the user exists, and if so- will print your token.  
       - copy the token you received.  
  -2.  
