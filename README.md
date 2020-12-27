@@ -12,7 +12,7 @@ ________________________________________________________________
 - send two requests to the user-server:  
  1. GET request to: http://localhost:3000/login , with body (JSON).
    - the body needs to include: "userName" ,  "password". 
-     - userName: "username1"  
+     - userName: "username1".  
      - password: "password1234". 
    - the app will check if the user exists, and if so- will print your token.  
   - copy the token you received.  
@@ -23,7 +23,7 @@ ________________________________________________________________
      - token: paste from the previous sesponse.  
    - the body needs to include:"number1" , "number2" , "action".  
      - number1, number2: any numbers you want to calculate.    
-     - action (optional): "add" / "sub" / "mult" / "div". default:"add"  
+     - action (optional): "add" / "sub" / "mult" / "div".  default:"add".  
    - the app wil check your token, and the existance of at least "number1" and "number2" , and will print the result.  
 ________________________________________________________________
 
