@@ -1,11 +1,25 @@
 # Auth-Project
 
-a simple back-end verification project, using JWT.  
+a simple back-end authentication project, using JWT.  
 this is a calculator, that only autheniticated users can use.  
 
 ________________________________________________________________
+:computer:The Technologies I used in this project:  
+<kbd>
+<img src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/256/full/nodejslogo.png" alt="Node JS Logo"  height="50">
+</kbd>
+ <kbd>
+<img src="https://www.vitoshacademy.com/wp-content/uploads/2015/04/JS.png" alt="JS Logo"  height="50">
+</kbd>
+ <kbd>
+<img src="https://buttercms.com/static/images/tech_banners/ExpressJS.png" alt="Express Logo"  height="50">
+</kbd>
+ <kbd>
+<img src="https://jwt.io/img/logo-asset.svg" alt="JWT Logo"  height="50">
+</kbd>
 
 
+_________________________________________________________________
 :arrow_forward: how to run:  
 
 - start the three servers in different terminals: user-server, auth-server, calc-server.  
