@@ -6,18 +6,19 @@ this is a calculator, that only autheniticated users can use.
 ________________________________________________________________
 
 
--:arrow_forward: how to run:  
+:arrow_forward: how to run:  
 
 - start the three servers in different terminals: user-server, auth-server, calc-server.  
 - send two requests to the user-server:  
- 1. GET request to: http://localhost:3000/login , with body (JSON). 
+ 1. GET request to: http://localhost:3000/login , with body (JSON).
    - the body needs to include: "userName" ,  "password". 
      - userName: "username1"  
      - password: "password1234". 
    - the app will check if the user exists, and if so- will print your token.  
   - copy the token you received.  
   
- 2. GET request to: http://localhost:3000/calc , with headers and body (JSON).  
+    
+ 2. GET request to: http://localhost:3000/calc , with headers and body (JSON).
    - the headers needs to include: "token".  
      - token: paste from the previous sesponse.  
    - the body needs to include:"number1" , "number2" , "action".  
